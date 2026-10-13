@@ -1,0 +1,32 @@
+# Task 3
+
+
+FROM python:3.12-slim
+ENV PYTHONDOWNWRITEBYTECODE=1
+    PYTHONUNBUFFERED=1
+
+WORKDIR /app
+
+COPY requirements.txt .
+
+
+RUN pip install --no-cache-dir -r requirements.txt \
+    && useradd --create-home --shell /bin/bash appuser 
+
+COPY --chown=appuser:app.py
+
+
+USER appuser
+
+HEALTHCHECK --interval=30s --timeout=30s CMD curl -f http://localhost:8000/health || exit 1
+
+CMD ["python", "app.py"]
+
+
+
+
+commands to run  
+
+docker build -t .
+docker run -p 8000:8000 <image_name>
+docker logs <container_id>

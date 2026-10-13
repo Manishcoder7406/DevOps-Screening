@@ -1,0 +1,13 @@
+Commands 
+
+GET-LocalUser -Name "svc_deploy" 
+Get-LocalGroupMember -Group "Administrators"
+ 
+  
+Install IISR Role 
+  Install_WindowsFeature -Name Web-Server -IncludeManagement
+   
+    
+     
+Open port 80 on firewall
+Get-NetfirewallRule -DisplayName "Allow Http Ports 80"

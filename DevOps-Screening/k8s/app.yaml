@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata:
+   name: First depoloyment
+spec:
+
+   type: ClusterIP
+     
+   replicas: 2
+   selector:
+      matchLabels:
+         app: first-deployment
+   template:
+      metadata:
+         labels:
+            app: first-deployment
+      spec:
+         containers:
+         - name: app 
+           image: screeningapp:latest
+           ports:
+           - containerPort: 5000
+
+           resources:
+              requests:
+                 memory: "265Mi"
+                 cpu: "100m"
+              limits:
+                 memory: "256Mi"
+                 cpu: "500m"
+
+
+
+Commands to be used to run :
+
+kubectl apply -f k8s/app.yaml
+kubectl rollout status deployement/first-deployment

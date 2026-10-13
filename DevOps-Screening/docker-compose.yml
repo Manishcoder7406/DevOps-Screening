@@ -1,0 +1,26 @@
+services:
+   app1:
+      build: ./app
+      image: screeningapp:latest
+      hostname: app1
+      expose:
+         -"5000"
+   app2:
+      build: ./app
+      image: screeningapp:latest
+      hostname: app2
+      expose:
+         -"5000"
+
+    nginx:
+      build: ./nginx
+      image: screeningnginx:latest
+      hostname: nginx
+      ports:
+         - "8080:80"
+           
+            
+commands to be used after this configs:
+
+docker compose up -d --build
+docker compose ps 

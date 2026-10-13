@@ -1,0 +1,9 @@
+1. on Kali linux Scan the docker compose network 
+    docker network ls 
+     
+2. install nmap inside kali container 
+     apt-get update
+     apt-get install -y nmap
+      
+3. Scan the nginx 
+     nmap -sV nginx 

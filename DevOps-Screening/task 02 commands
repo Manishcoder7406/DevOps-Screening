@@ -1,0 +1,29 @@
+commands to be used to push 
+
+git switch -c main 
+git add app/ scripts/ .gitignore
+
+git commit -m "Initial Commit" 
+git push -u origin main   
+ 
+
+Adding Version 
+  @app.route("/version")
+  def version():
+    return jsonify({"version": "1.0.0"})
+
+
+
+
+git switch -c feature/version
+git add app/DevOps-Screening/app.py
+
+git commit -m "Added version endpoint"
+git push -u origin feature/version
+
+
+
+
+# to display commit graph 
+
+git log --online --graph --all
